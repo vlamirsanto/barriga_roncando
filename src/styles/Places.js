@@ -4,7 +4,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 const { height, width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'flex-end'
@@ -17,13 +17,15 @@ const styles = StyleSheet.create({
     right: 0
   },
   placesContainer: {
+    flex: 1,
     width: '100%',
     maxHeight: 200
   },
   place: {
     width: width - 40,
     maxHeight: 190,
-    backgroundColor: '#fff',
+    margin: 10,
+    backgroundColor: '#ffffff',
     marginHorizontal: 20,
     padding: 20
   },
@@ -39,6 +41,16 @@ const styles = StyleSheet.create({
   textTitle: {
     fontSize: 20,
   },
+
+  viewPager: {
+    flex: 1,
+  },
+  pageStyle: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'red',
+    margin: 10
+  }
 });
 
 export default styles;

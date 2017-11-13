@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, View, Dimensions, Image } from 'react-native';
+import { ViewPagerAndroid, Text, View, Dimensions, Image } from 'react-native';
 import MapView from 'react-native-maps';
 
 import styles from '../styles/Places';
@@ -48,17 +48,16 @@ export default class Places extends Component
         ))}
         </MapView>
 
-        <ScrollView 
+        <ViewPagerAndroid 
           style={ styles.placesContainer } 
-          horizontal
-          showsHorizontalScrollIndicator={ false }
-          pagingEnabled
-          onMomentumScrollEnd={ e => {
-            const scrolled = e.nativeEvent.contentOffset.x;
+          onPageSelected={ e => {
+            const index = e.nativeEvent.position;
 
-            const index = (scrolled > 0)
+           {/* const index = (scrolled > 0)
               ? scrolled / Dimensions.get('window').width
               : 0;
+
+              alert(index);*/}
 
               const { latitude, longitude, mark } = this.props.places[index];
 
@@ -81,7 +80,7 @@ export default class Places extends Component
             <Text>{ place.description }</Text>
           </View>
         ))}
-        </ScrollView>
+        </ViewPagerAndroid>
       </View>
     )
   }
